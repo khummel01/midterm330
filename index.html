@@ -10,8 +10,17 @@
 
 	<script>
 		function findBook() {
+			let config = {}; // object, here's the method, body, headers
+			config.method = 'GET';
+			config.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
 
-		}
+			fetch(`https://www.goodreads.com/book/${title}.FORMAT`, config) //return a promise that contains details about the response
+				.then(function(response) {
+					return response.json();
+				})
+				.then(function(books) {
+					document.getElementById("findBookOutput").innerHTML = books;
+				});
 	</script>
 
 	<body>
@@ -28,6 +37,15 @@
 						<div class="form-group col-md-5" style="float: right;" id="findBookPosition">
 							<button type="button" class="btn btn-primary" onclick="findBook()" id="findBkBtt">Find Book</button>
 						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="container" id="divTable">
+			<div class="col-md-12" id="onloadHere"style="text-align: center;">
+				<h5 id="findBookOutput"></h5>
+			</div>
+		</div>
 	</body>
 
 	<script></script>
