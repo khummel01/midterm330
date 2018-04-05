@@ -3,13 +3,34 @@
 	<head>
 		<title>Midterm</title>
 		<meta charset="utf-8"> 
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link href="styles.css" rel="stylesheet"/>
 	</head>
 
 	<script>
+		function findBook() {
+
+		}
 	</script>
 
 	<body>
-		
+		<br><br><br>
+		<form id="inputForm">
+			<div class="container">
+				<div class="panel panel-default col-md-12">
+					<div class="form-row">
+						<div class="form-group col-md-5">
+							<label for="item">Book Title</label>
+							<input class="form-control" id="bookTitle" placeholder="Title">
+						</div>
+
+						<div class="form-group col-md-5" style="float: right;" id="findBookPosition">
+							<button type="button" class="btn btn-primary" onclick="findBook()" id="findBkBtt">Find Book</button>
+						</div>
 	</body>
 
+	<script></script>
+
+	
 </html>
