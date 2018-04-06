@@ -21,8 +21,8 @@
 					return response.json();
 				})
 				.then(function(data) {
-					let x = data["items"][0]["volumeInfo"]["description"];
-					document.getElementById("findBookOutput").innerHTML = x;
+					let j = data["items"][0]["volumeInfo"]["description"];
+					document.getElementById("findBookOutput").innerHTML = j;
 				});
 		}
 	</script>
