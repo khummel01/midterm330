@@ -10,42 +10,69 @@
 
 	<script>
 		function findBook() {
+			let title = document.querySelector("#bookTitle").value;
+			let author = document.querySelector("#author").value;
 			let config = {}; // object, here's the method, body, headers
 			config.method = 'GET';
-			config.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
+			config.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'};
 
-			fetch(`https://www.goodreads.com/book/${title}.FORMAT`, config) //return a promise that contains details about the response
+			fetch(`https://www.googleapis.com/books/v1/volumes?q={${title}, ${author}}`, config) //return a promise that contains details about the response
 				.then(function(response) {
 					return response.json();
 				})
-				.then(function(books) {
-					document.getElementById("findBookOutput").innerHTML = books;
+				.then(function(data) {
+					let x = data["items"][0]["volumeInfo"]["description"];
+					document.getElementById("findBookOutput").innerHTML = x;
 				});
+		}
 	</script>
 
 	<body>
 		<br><br><br>
-		<form id="inputForm">
+		<div id="searchHeaders">
+			<h3>Search by Book</h3>
+		</div>
+		<br><br>
+		<form id="bookInputForm">
 			<div class="container">
 				<div class="panel panel-default col-md-12">
 					<div class="form-row">
 						<div class="form-group col-md-5">
 							<label for="item">Book Title</label>
-							<input class="form-control" id="bookTitle" placeholder="Title">
+				      		<input type="text" class="form-control" id="bookTitle" placeholder="title">
 						</div>
-
-						<div class="form-group col-md-5" style="float: right;" id="findBookPosition">
-							<button type="button" class="btn btn-primary" onclick="findBook()" id="findBkBtt">Find Book</button>
+						<div class="form-group col-md-5">
+							<label for="item">Author</label>
+							<input class="form-control" id="author" placeholder="firstname lastname">
+						</div>
+						<div class="form-group col-md-2" style="float: right;" id="findBookPosition">
+							<button type="button" class="btn btn-primary findBttPosition" onclick="findBook()" id="findBkBtt">Find Book</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</form>
-		<div class="container" id="divTable">
-			<div class="col-md-12" id="onloadHere"style="text-align: center;">
-				<h5 id="findBookOutput"></h5>
+		<br><br>
+		<div id="searchHeaders">
+			<h3>Search by Movie</h3>
+		</div>
+		<br><br>
+		<form id="movieInputForm">
+			<div class="container">
+				<div class="panel panel-default col-md-12">
+					<div class="form-row">
+						<div class="form-group col-md-5">
+							<label for="item">Movie Title</label>
+				      		<input type="text" class="form-control" id="movieTitle" placeholder="title">
+						</div>
+						<div class="form-group col-md-2" id="findMoviePosition">
+							<button type="button" class="btn btn-primary findBttPosition" onclick="findMovie()" id="findMvBtt">Find Movie</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
+
 	</body>
 
 	<script></script>
