@@ -16,36 +16,50 @@ function findBook() {
       return response.json();
     })
     .then(function(data) {
-      console.log(data)
       let summary = data["items"][0]["volumeInfo"]["description"];
-
-      let displayDiv = document.querySelector("#findBookOutput")
 
       let summaryDisplay = document.querySelector("#displayBookSummary")
       summaryDisplay.innerHTML = summary;
-      console.log(summaryDisplay)
     });
 
     let titleDisplay = document.querySelector("#displayBookTitle")
     titleDisplay.innerHTML = title;
-    console.log("TITLEDISPLAY: " +titleDisplay)
 }
 
 function findMovie() {
   let title = document.querySelector("#movieTitle").value;
-  let config = {}; // object, here's the method, body, headers
-  config.method = 'GET';
-  config.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'};
   let api_key = "270ef537760087ddcea25e06616b754d"
-  fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${title}`, config) //return a promise that contains details about the response
+
+    // Fetches movie id
+  let config1 = {}; // object, here's the method, body, headers
+  config1.method = 'GET';
+  config1.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'};
+  fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${title}`, config1) //return a promise that contains details about the response
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      let firstResult = data["results"][0];
+      movieId = firstResult["id"]
+    });
+
+  // Fetch Movie Information
+  let movieId = 505;
+  let config2 = {}; // object, here's the method, body, headers
+  config2.method = 'GET';
+  config2.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'};
+  fetch(`https://api.themoviedb.org/3/search/movie/${movieId}?api_key=${api_key}`, config2) //return a promise that contains details about the response
     .then(function(response) {
       return response.json();
     })
     .then(function(data) {
       console.log(data)
-      let x = data["items"][0];
-      console.log(x)
-      // console.log(x.title)
-      document.querySelector("#findMovieOutput").innerHTML = x;
+      // let firstResult = data["results"][0];
+      // let movieId = firstResult["id"]
+      // document.querySelector("#displayMovieSummary").innerHTML = movieId;
+      let summary = "Display Summary Here";
+      document.querySelector("#displayMovieSummary").innerHTML = summary;
     });
+    let titleDisplay = document.querySelector("#displayMovieTitle")
+    titleDisplay.innerHTML = title;
 }

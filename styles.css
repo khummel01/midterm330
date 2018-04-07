@@ -8,6 +8,10 @@ div.output {
 	padding: 5%;
 }
 
+img#TMDBlogo {
+	width: 15%;
+}
+
 .findBttPosition {
     margin-top: 30px;
 }
