@@ -15,8 +15,9 @@ function findBook() {
       return response.json();
     })
     .then(function(data) {
+      console.log(data)
       let x = data["items"][0]["volumeInfo"]["description"];
-      
+
       let displayDiv = document.getElementById("findBookOutput")
       let titleDisplay = document.getElementById("bookTitle")
       titleDisplay.innerHTML = title;
@@ -32,12 +33,13 @@ function findMovie() {
   config.method = 'GET';
   config.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'};
   let api_key = "270ef537760087ddcea25e06616b754d"
-  fetch(`https://api.themoviedb.org/3/search/${title}?api_key=270ef537760087ddcea25e06616b754d`, config) //return a promise that contains details about the response
+  fetch(`https://api.themoviedb.org/3/search/movie?api_key=270ef537760087ddcea25e06616b754d&query=${title}`, config) //return a promise that contains details about the response
     .then(function(response) {
       return response.json();
     })
     .then(function(data) {
-      let x = data["items"][0]["volumeInfo"]["description"]; //change to TMDB specific
+      let x = data[0][title]; //change to TMDB specific
+      console.log(data)
       document.getElementById("findMovieOutput").innerHTML = x;
     });
 }
