@@ -1,31 +1,18 @@
+<!-- Authors: Katie Hummel and Kari Hoff
+		 Filename: index.html
+		 Purpose: HTML for CS330 Midterm (LitFilm)
+		 Date: 3 April 2018
+-->
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Midterm</title>
-		<meta charset="utf-8"> 
+		<meta charset="utf-8">
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link href="styles.css" rel="stylesheet"/>
 	</head>
 
-	<script>
-		function findBook() {
-			let title = document.querySelector("#bookTitle").value;
-			let author = document.querySelector("#author").value;
-			let config = {}; // object, here's the method, body, headers
-			config.method = 'GET';
-			config.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'};
-
-			fetch(`https://www.googleapis.com/books/v1/volumes?q={${title}, ${author}}`, config) //return a promise that contains details about the response
-				.then(function(response) {
-					return response.json();
-				})
-				.then(function(data) {
-					let j = data["items"][0]["volumeInfo"]["description"];
-					document.getElementById("findBookOutput").innerHTML = j;
-				});
-		}
-	</script>
 
 	<body>
 		<br><br><br>
@@ -52,6 +39,10 @@
 				</div>
 			</div>
 		</form>
+		<div class="output" id="findBookOutput">
+				<h1 id="bookTitle"></h1>
+				<p id="bookSummary"></p>
+		</div>
 		<br><br>
 		<div id="searchHeaders">
 			<h3>Search by Movie</h3>
@@ -72,10 +63,19 @@
 				</div>
 			</div>
 		</div>
+		<div class="output" id="findMovieOutput">
+			<h1 id="movieTitle"></h1>
+			<p id="moveiSummary"></p>
+		</div>
+
+		<!-- Place in a footer -->
+		<!-- Required to use TMDB -->
+		<img src="TMDBlogo.png">
+		<p>"This product uses the TMDb API but is not endorsed or certified by TMDb."</p>
 
 	</body>
 
-	<script></script>
+	<script type="text/javascript" src="controller.js"></script>
 
-	
+
 </html>

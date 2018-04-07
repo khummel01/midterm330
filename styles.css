@@ -4,6 +4,10 @@ body {
 	font-family:'Montserrat', sans-serif;
 }
 
+div.output {
+	padding: 5%;
+}
+
 .findBttPosition {
     margin-top: 30px;
 }
@@ -11,4 +15,3 @@ body {
 #searchHeaders {
     text-align: center;
 }
-
