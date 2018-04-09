@@ -1,7 +1,8 @@
 @charset "utf-8";
 
 body {
-	font-family:'Montserrat', sans-serif;
+	font-family: 'Cardo', serif;
+	font-family: 'Quattrocento', serif;
 }
 
 div.output {
@@ -12,6 +13,14 @@ div.output {
     margin-top: 30px;
 }
 
+#findBkBtt {
+	margin-left: 45px;
+}
+
 #searchHeaders {
     text-align: center;
+}
+
+.cardColor {
+	color: white;
 }

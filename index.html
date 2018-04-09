@@ -10,12 +10,21 @@
 		<meta charset="utf-8">
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!-- Google fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Cardo|Quattrocento" rel="stylesheet">
 		<link href="styles.css" rel="stylesheet"/>
 	</head>
 
-
 	<body>
-		<br><br><br>
+		<!-- Navigation -->
+		<div class="card text-center" style="background-color: #6351ce;">
+		  <div class="card-body">
+		    <h1 class="card-title cardColor">MOBS</h1>
+		    <h5 class="card-text cardColor">Your favorite movie or book search!</h5>
+		  </div>
+		</div>
+		<!-- End Navigation -->
+		<br><br>
 		<div id="searchHeaders">
 			<h3>Search by Book</h3>
 		</div>
@@ -26,24 +35,35 @@
 					<div class="form-row">
 						<div class="form-group col-md-5">
 							<label for="item">Book Title</label>
-				      		<input type="text" class="form-control" id="bookTitle" placeholder="title">
+				      <input type="text" class="form-control" id="bookTitleInput" placeholder="title">
 						</div>
 						<div class="form-group col-md-5">
 							<label for="item">Author</label>
-							<input class="form-control" id="author" placeholder="firstname lastname">
+							<input class="form-control" id="authorInput" placeholder="first last">
 						</div>
 						<div class="form-group col-md-2" style="float: right;" id="findBookPosition">
 							<button type="button" class="btn btn-primary findBttPosition" onclick="findBook()" id="findBkBtt">Find Book</button>
 						</div>
 					</div>
 				</div>
-			</div>
+				<div class="panel panel-default col-md-12" id="findBookOutput">
+						<h1 id="bookTitle"></h1>
+						<h3 id="bookAuthor"></h3>
+						<h5 id="avgRating"></h5>
+						<br>
+						<div class="form-row">
+							<div class="form-group col-md-2">
+								<p id="bookImage"></p>
+							</div>
+							<div class="form-group col-md-9">
+								<p id="bookSummary"></p>
+							</div>
+						</div>
+						<br><br>
+						<h5 id="possWrongResult"></h5>
+				</div>
 		</form>
-		<div class="output" id="findBookOutput">
-				<h1 id="bookTitle"></h1>
-				<p id="bookSummary"></p>
-		</div>
-		<br><br>
+		<br>
 		<div id="searchHeaders">
 			<h3>Search by Movie</h3>
 		</div>
