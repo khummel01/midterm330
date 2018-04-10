@@ -9,13 +9,43 @@ div.output {
 }
 
 img#TMDBlogo {
-	width: 15%;
+	width: 150px;
+	float: left;
 }
 
 .findBttPosition {
     margin-top: 30px;
 }
 
+.footer {
+	position: fixed;
+	height: 150px;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 2.5%;
+	background-color: rgb(51, 153, 255);
+	color: white;
+	text-align: center;
+}
+
+.footer div {
+	float: left;
+	width: 33%;
+}
+
+.output {
+	align-content: center;
+}
+
 #searchHeaders {
     text-align: center;
+}
+
+#TMDBdisclaimer {
+	font-size: 10px;
+	color: black;
+	text-align: right;
+	width: 45%;
+	float: right;
 }
