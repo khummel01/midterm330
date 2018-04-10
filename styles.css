@@ -26,13 +26,11 @@ img#TMDBlogo {
 }
 
 .footer {
-	/* background-color: rgb(51, 153, 255); */
 	background-color: #6351ce;
 	height: 150px;
 	padding: 2.5%;
 	margin-top: auto;
-
-	position: fixed;
+	position: relative;
 	left: 0;
 	bottom: 0;
 	width: 100%;

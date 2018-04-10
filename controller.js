@@ -15,40 +15,61 @@ function findBook() {
       return response.json();
     })
     .then(function(data) {
-      let title = data["items"][0]["volumeInfo"]["title"];
-      let author = data["items"][0]["volumeInfo"]["authors"][0];
-      let summary = data["items"][0]["volumeInfo"]["description"];
-      let avgRating = data["items"][0]["volumeInfo"]["averageRating"];
-      let bookImage = data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"];
-
-      let titleDisplay = document.getElementById("bookTitle");
-      let authorDisplay = document.getElementById("bookAuthor");
+      let titleDisplay = document.getElementById("displayBookTitle");
+      let authorDisplay = document.getElementById("displayBookAuthor");
       let summaryDisplay = document.getElementById("bookSummary");
       let avgRatingDisplay = document.getElementById("avgRating");
       let possWrongResultDisplay = document.getElementById("possWrongResult");
       let bookImageDisplay = document.getElementById("bookImage");
 
+      let title = data["items"][0]["volumeInfo"]["title"];
+      console.log(title)
       titleDisplay.innerHTML = title;
-      authorDisplay.innerHTML = author;
-      possWrongResultDisplay.innerHTML = "Not what you're looking for? Please check your spelling and be sure to input the full title and author's name."
-      bookImageDisplay.innerHTML =  `<img src=${bookImage} style=width:167px;height:270px;float:left;>`;
-;
-
-      if (summary == undefined) {
+      // Access and display Author info
+      try {
+        let author = data["items"][0]["volumeInfo"]["authors"][0];
+      } catch (e) {
+        authorDisplay.innerHTML = "Author unavailable";
+        authorDisplay.innerHTML = author;
+      }
+      // Access and display Summary
+      try {
+        let summary = data["items"][0]["volumeInfo"]["description"];
+        if (summary == undefined) {
+          summaryDisplay.innerHTML = "Summary unavailable";
+        } else {
+          summaryDisplay.innerHTML = summary;
+        }
+      } catch (e) {
         summaryDisplay.innerHTML = "Summary unavailable";
-      } else {
-        summaryDisplay.innerHTML = summary;
       }
-      if (avgRating == undefined) {
-        avgRatingDisplay.innerHTML = "Not rated";
-      } else {
+      // Access and display Rating
+      try {
+        let avgRating = data["items"][0]["volumeInfo"]["averageRating"];
         avgRatingDisplay.innerHTML = `Average rating: ${avgRating}/5`;
+      } catch (e) {
+        avgRatingDisplay.innerHTML = "Not rated";
       }
+      try {
+        let bookImage = data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"];
+        bookImageDisplay.innerHTML =  `<img src=${bookImage} style=width:167px;height:270px;float:left;>`;
+      } catch (e) {
+        bookImageDisplay.innerHTML = "Picture unavailable";
+      }
+
+      possWrongResultDisplay.innerHTML = "Not what you're looking for? Please check your spelling and be sure to input the full title and author's name."
+
+    let movieSearchBar = document.querySelector("#movieTitle")
+    movieSearchBar.innerHTML = title;
+    findMovie()
     });
 }
 
 function findMovie() {
   let title = document.querySelector("#movieTitle").value;
+  if (title == "") {
+    let title = document.querySelector("#bookTitle").value;
+  }
   let api_key = "270ef537760087ddcea25e06616b754d"
 
   // Fetches movie id
