@@ -4,14 +4,8 @@
 //Date: 3 April 2018
 
 function findBook() {
-<<<<<<< HEAD
   let title = document.querySelector("#bookTitleInput").value;
   let author = document.querySelector("#authorInput").value;
-=======
-  let title = document.querySelector("#bookTitle").value;
-  console.log("TTILE: "+title)
-  let author = document.querySelector("#author").value;
->>>>>>> 5d8be53c20d83cb1e430c703bacc3025ec7850b2
   let config = {}; // object, here's the method, body, headers
   config.method = 'GET';
   config.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'};
@@ -51,38 +45,102 @@ function findBook() {
       } else {
         avgRatingDisplay.innerHTML = `Average rating: ${avgRating}/5`;
       }
-=======
-      console.log(data)
       let summary = data["items"][0]["volumeInfo"]["description"];
+      let avgRating = data["items"][0]["volumeInfo"]["averageRating"];
+      let bookImage = data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"];
 
-      let displayDiv = document.querySelector("#findBookOutput")
+      let titleDisplay = document.getElementById("bookTitle");
+      let authorDisplay = document.getElementById("bookAuthor");
+      let summaryDisplay = document.getElementById("bookSummary");
+      let avgRatingDisplay = document.getElementById("avgRating");
+      let possWrongResultDisplay = document.getElementById("possWrongResult");
+      let bookImageDisplay = document.getElementById("bookImage");
 
-      let summaryDisplay = document.querySelector("#displayBookSummary")
-      summaryDisplay.innerHTML = summary;
-      console.log(summaryDisplay)
->>>>>>> 5d8be53c20d83cb1e430c703bacc3025ec7850b2
+      titleDisplay.innerHTML = title;
+      authorDisplay.innerHTML = author;
+      possWrongResultDisplay.innerHTML = "Not what you're looking for? Please check your spelling and be sure to input the full title and author's name."
+      bookImageDisplay.innerHTML =  `<img src=${bookImage} style=width:167px;height:270px;float:left;>`;
+;
+
+      if (summary == undefined) {
+        summaryDisplay.innerHTML = "Summary unavailable";
+      } else {
+        summaryDisplay.innerHTML = summary;
+      }
+      if (avgRating == undefined) {
+        avgRatingDisplay.innerHTML = "Not rated";
+      } else {
+        avgRatingDisplay.innerHTML = `Average rating: ${avgRating}/5`;
+      }
     });
-
-    let titleDisplay = document.querySelector("#displayBookTitle")
-    titleDisplay.innerHTML = title;
-    console.log("TITLEDISPLAY: " +titleDisplay)
 }
 
 function findMovie() {
   let title = document.querySelector("#movieTitle").value;
-  let config = {}; // object, here's the method, body, headers
-  config.method = 'GET';
-  config.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'};
   let api_key = "270ef537760087ddcea25e06616b754d"
-  fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${title}`, config) //return a promise that contains details about the response
+
+  // Fetches movie id
+  let config1 = {}; // object, here's the method, body, headers
+  config1.method = 'GET';
+  config1.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'};
+  let movieId = fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${title}`, config1) //return a promise that contains details about the response
     .then(function(response) {
       return response.json();
     })
     .then(function(data) {
-      console.log(data)
-      let x = data["items"][0];
-      console.log(x)
-      // console.log(x.title)
-      document.querySelector("#findMovieOutput").innerHTML = x;
+      let firstResult = data["results"][0];
+      findMovieInfo(firstResult["id"]);
     });
+}
+
+function findMovieInfo(movieId) {
+  let api_key = "270ef537760087ddcea25e06616b754d"
+
+  let config2 = {}; // object, here's the method, body, headers
+  config2.method = 'GET';
+  config2.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'};
+
+  // Fetch Summary & Rating
+  fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}`, config2)
+  .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      let title = data["original_title"];
+      let titleDisplay = document.querySelector("#displayMovieTitle").innerHTML = title;
+      let tagline = data["tagline"];
+      document.querySelector("#displayMovieTagline").innerHTML = tagline;
+      let overview = data["overview"];
+      document.querySelector("#displayMovieSummary").innerHTML = overview;
+      let rating = data["vote_average"]
+      document.querySelector("#displayMovieRating").innerHTML = `Vote average: ${rating}/10`;
+    });
+  // Fetch Director
+  fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${api_key}`, config2)
+  .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      let director = data["crew"][0]["name"];
+      document.querySelector("#displayMovieDirector").innerHTML = `Directed by ${director}`;
+    });
+  // Fetch Image
+  fetch(`https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${api_key}`, config2) //return a promise that contains details about the response
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      let poster_path = data["posters"][0]["file_path"];
+      let posterDisplay = document.querySelector("#displayMoviePoster")
+      posterDisplay.src = `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${poster_path}`;
+      posterDisplay.style = "width:167px;height:270px;float:left;padding-right:2%";
+    });
+  //Fetch Video -- add later
+  // fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${api_key}`, config2) //return a promise that contains details about the response
+  //   .then(function(response) {
+  //     return response.json();
+  //   })
+  //   .then(function(data) {
+  //     console.log(data)
+  //   });
 }

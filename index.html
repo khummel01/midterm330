@@ -63,10 +63,6 @@
 						<h5 id="possWrongResult"></h5>
 				</div>
 		</form>
-		<div class="output" id="findBookOutput">
-				<h1 id="displayBookTitle"></h1>
-				<p id="displayBookSummary"></p>
-		</div>
 		<br><br>
 		<div id="searchHeaders">
 			<h3>Search by Movie</h3>
@@ -89,14 +85,26 @@
 		</div>
 		<div class="output" id="findMovieOutput">
 			<h1 id="displayMovieTitle"></h1>
-			<p id="displayMoveiSummary"></p>
+			<h3 id="displayMovieDirector"></h3>
+			<h5 id="displayMovieRating"></h5>
+			<img id="displayMoviePoster">
+			<h6 id="displayMovieTagline"></h6>
+			<p id="displayMovieSummary"></p>
 		</div>
 
-		<!-- Place in a footer -->
-		<!-- Required to use TMDB -->
-		<img src="TMDBlogo.png">
-		<p>"This product uses the TMDb API but is not endorsed or certified by TMDb."</p>
-
+		<footer class="footer">
+			<div id="footerDiv">
+				<img id="TMDBlogo" src="TMDBlogo.png">
+			</div>
+			<div id="footerDiv">
+				<p>Copywrite 2018 - Luther College</p>
+				<p>Made by Katie Hummel and Kari Hoff</p>
+			</div>
+			<div id="footerDiv">
+				<!-- Required to use TMDB -->
+				<p id="TMDBdisclaimer">This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+			</div>
+		</footer>
 	</body>
 
 	<script type="text/javascript" src="controller.js"></script>

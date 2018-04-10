@@ -6,7 +6,16 @@ body {
 }
 
 div.output {
-	padding: 5%;
+	padding-left: 12%;
+}
+
+img#TMDBlogo {
+	width: 150px;
+	float: left;
+}
+
+.cardColor {
+	color: white;
 }
 
 .findBttPosition {
@@ -19,8 +28,4 @@ div.output {
 
 #searchHeaders {
     text-align: center;
-}
-
-.cardColor {
-	color: white;
 }
