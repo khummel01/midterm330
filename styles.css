@@ -1,11 +1,15 @@
 @charset "utf-8";
 
 body {
-	font-family:'Montserrat', sans-serif;
+	font-family: 'Cardo', serif;
+	font-family: 'Quattrocento', serif;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 div.output {
-	padding: 5%;
+	padding-left: 12%;
 }
 
 img#TMDBlogo {
@@ -13,20 +17,28 @@ img#TMDBlogo {
 	float: left;
 }
 
+.cardColor {
+	color: white;
+}
+
 .findBttPosition {
     margin-top: 30px;
 }
 
 .footer {
-	position: fixed;
+	/* background-color: rgb(51, 153, 255); */
+	background-color: #6351ce;
 	height: 150px;
+	padding: 2.5%;
+	margin-top: auto;
+
+	position: fixed;
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	padding: 2.5%;
-	background-color: rgb(51, 153, 255);
 	color: white;
 	text-align: center;
+
 }
 
 .footer div {

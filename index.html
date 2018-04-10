@@ -10,11 +10,21 @@
 		<meta charset="utf-8">
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!-- Google fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Cardo|Quattrocento" rel="stylesheet">
 		<link href="styles.css" rel="stylesheet"/>
 	</head>
 
 
 	<body>
+		<!-- Navigation -->
+		<div class="card text-center" style="background-color: #6351ce;">
+		  <div class="card-body">
+		    <h1 class="card-title cardColor">MOBS</h1>
+		    <h5 class="card-text cardColor">Your favorite movie or book search!</h5>
+		  </div>
+		</div>
+		<!-- End Navigation -->
 		<br><br><br>
 		<div id="searchHeaders">
 			<h3>Search by Book</h3>
@@ -37,12 +47,24 @@
 						</div>
 					</div>
 				</div>
+				<div class="panel panel-default col-md-12" id="findBookOutput">
+						<h1 id="bookTitle"></h1>
+						<h3 id="bookAuthor"></h3>
+						<h5 id="avgRating"></h5>
+						<br>
+						<div class="form-row">
+							<div class="form-group col-md-2">
+								<p id="bookImage"></p>
+							</div>
+							<div class="form-group col-md-9">
+								<p id="bookSummary"></p>
+							</div>
+						</div>
+						<br><br>
+						<h5 id="possWrongResult"></h5>
+				</div>
 			</div>
 		</form>
-		<div class="output" id="findBookOutput">
-				<h1 id="displayBookTitle"></h1>
-				<p id="displayBookSummary"></p>
-		</div>
 		<br><br>
 		<div id="searchHeaders">
 			<h3>Search by Movie</h3>
@@ -65,27 +87,26 @@
 		</div>
 		<div class="output" id="findMovieOutput">
 			<h1 id="displayMovieTitle"></h1>
+			<h3 id="displayMovieDirector"></h3>
+			<h5 id="displayMovieRating"></h5>
 			<img id="displayMoviePoster">
+			<h6 id="displayMovieTagline"></h6>
 			<p id="displayMovieSummary"></p>
 		</div>
 
-		<div>
-			<footer>
-				<div class="footer">
-					<div id="footerDiv">
-						<img id="TMDBlogo" src="TMDBlogo.png">
-					</div>
-					<div id="footerDiv">
-						<p>Copywrite 2018 - Luther College</p>
-						<p>Made by Katie Hummel and Kari Hoff</p>
-					</div>
-					<div id="footerDiv">
-						<!-- Required to use TMDB -->
-						<p id="TMDBdisclaimer">This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
-					</div>
-				</div>
-			</footer>
-		</div>
+		<footer class="footer">
+			<div id="footerDiv">
+				<img id="TMDBlogo" src="TMDBlogo.png">
+			</div>
+			<div id="footerDiv">
+				<p>Copywrite 2018 - Luther College</p>
+				<p>Made by Katie Hummel and Kari Hoff</p>
+			</div>
+			<div id="footerDiv">
+				<!-- Required to use TMDB -->
+				<p id="TMDBdisclaimer">This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+			</div>
+		</footer>
 	</body>
 
 	<script type="text/javascript" src="controller.js"></script>
