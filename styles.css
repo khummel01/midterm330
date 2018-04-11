@@ -1,3 +1,8 @@
+/* Authors: Katie Hummel and Kari Hoff
+  Filename: styles.class
+	Purpose: Custom styles for CS 330 Midterm (MOBS)
+	Date: 3 April 2018 */
+
 @charset "utf-8";
 
 body {
@@ -27,7 +32,7 @@ img#TMDBlogo {
 
 .footer {
 	background-color: #6351ce;
-	height: 150px;
+	height: 150px; /* Fix this */
 	padding: 2.5%;
 	margin-top: auto;
 	position: relative;

@@ -1,6 +1,6 @@
 <!-- Authors: Katie Hummel and Kari Hoff
 		 Filename: index.html
-		 Purpose: HTML for CS330 Midterm (LitFilm)
+		 Purpose: HTML for CS330 Midterm (MOBS)
 		 Date: 3 April 2018
 -->
 <!DOCTYPE html>
@@ -9,9 +9,13 @@
 		<title>Midterm</title>
 		<meta charset="utf-8">
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet"
+					href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+					integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+					crossorigin="anonymous">
 		<!-- Google fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Cardo|Quattrocento" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Cardo|Quattrocento"
+					rel="stylesheet">
 		<link href="styles.css" rel="stylesheet"/>
 	</head>
 
@@ -36,14 +40,14 @@
 					<div class="form-row">
 						<div class="form-group col-md-5">
 							<label for="item">Book Title</label>
-				      		<input type="text" class="form-control" id="bookTitle" placeholder="title">
+				      		<input type="text" class="form-control" id="bookTitle" placeholder="Enter Book Title">
 						</div>
 						<div class="form-group col-md-5">
 							<label for="item">Author</label>
-							<input class="form-control" id="author" placeholder="firstname lastname">
+							<input class="form-control" id="author" placeholder="Enter First and Last Names">
 						</div>
 						<div class="form-group col-md-2" style="float: right;" id="findBookPosition">
-							<button type="button" class="btn btn-primary findBttPosition" onclick="bttClck()" id="findBkBtt">Find Book</button>
+							<button type="button" class="btn btn-primary findBttPosition" onclick="bttClck(this.id)" id="findBkBtt">Find Book</button>
 						</div>
 					</div>
 				</div>
@@ -76,10 +80,10 @@
 					<div class="form-row">
 						<div class="form-group col-md-5">
 							<label for="item">Movie Title</label>
-				      		<input type="text" class="form-control" id="movieTitle" placeholder="title">
+				      		<input type="text" class="form-control" id="movieTitle" placeholder="Enter Movie Title">
 						</div>
 						<div class="form-group col-md-2" id="findMoviePosition">
-							<button type="button" class="btn btn-primary findBttPosition" onclick="bttClck()" id="findMvBtt">Find Movie</button>
+							<button type="button" class="btn btn-primary findBttPosition" onclick="bttClck(this.id)" id="findMvBtt">Find Movie</button>
 						</div>
 					</div>
 				</div>

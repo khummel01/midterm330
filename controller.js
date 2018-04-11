@@ -1,16 +1,31 @@
 //Authors: Katie Hummel and Kari Hoff
 //Filename: controller.js
-//Purpose: javascript for CS330 Midterm (LitFilm)
+//Purpose: javascript for CS330 Midterm (MOBS)
 //Date: 3 April 2018
 
-function bttClck() {
+function bttClck(bttSpec) {
+  if (bttSpec == "findBkBtt") {
+    let titleElement = document.querySelector("#bookTitle");
+    let title = titleElement.value;
+    let authorElement = document.querySelector("#author");
+    let author = authorElement.value;
+    findBook(title, author);
+    findMovie(title);
+    titleElement.value = "";
+    authorElement.value = "";
+  } else {
+    let titleElement = document.querySelector("#movieTitle")
+    let title = titleElement.value;
+    findBook(title);
+    findMovie(title);
+    titleElement.value = "";
+  }
+
   let possWrongResultDisplay = document.getElementById("possWrongResult");
   possWrongResultDisplay.innerHTML = "Not what you're looking for? Please check your spelling and be sure to input the full title and author's name."
 }
 
-function findBook() {
-  let title = document.querySelector("#bookTitle").value;
-  let author = document.querySelector("#author").value;
+function findBook(title, author) {
   let config = {}; // object, here's the method, body, headers
   config.method = 'GET';
   config.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'};
@@ -27,7 +42,6 @@ function findBook() {
       let bookImageDisplay = document.getElementById("bookImage");
 
       let title = data["items"][0]["volumeInfo"]["title"];
-      console.log(title)
       titleDisplay.innerHTML = title;
       // Access and display Author info
       try {
@@ -67,11 +81,7 @@ function findBook() {
     });
 }
 
-function findMovie() {
-  let title = document.querySelector("#movieTitle").value;
-  if (title == "") {
-    let title = document.querySelector("#bookTitle").value;
-  }
+function findMovie(title) {
   let api_key = "270ef537760087ddcea25e06616b754d"
 
   // Fetches movie id
