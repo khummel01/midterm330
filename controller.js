@@ -3,6 +3,11 @@
 //Purpose: javascript for CS330 Midterm (LitFilm)
 //Date: 3 April 2018
 
+function bttClck() {
+  let possWrongResultDisplay = document.getElementById("possWrongResult");
+  possWrongResultDisplay.innerHTML = "Not what you're looking for? Please check your spelling and be sure to input the full title and author's name."
+}
+
 function findBook() {
   let title = document.querySelector("#bookTitle").value;
   let author = document.querySelector("#author").value;
@@ -19,7 +24,6 @@ function findBook() {
       let authorDisplay = document.getElementById("displayBookAuthor");
       let summaryDisplay = document.getElementById("bookSummary");
       let avgRatingDisplay = document.getElementById("avgRating");
-      let possWrongResultDisplay = document.getElementById("possWrongResult");
       let bookImageDisplay = document.getElementById("bookImage");
 
       let title = data["items"][0]["volumeInfo"]["title"];
@@ -56,8 +60,6 @@ function findBook() {
       } catch (e) {
         bookImageDisplay.innerHTML = "Picture unavailable";
       }
-
-      possWrongResultDisplay.innerHTML = "Not what you're looking for? Please check your spelling and be sure to input the full title and author's name."
 
     let movieSearchBar = document.querySelector("#movieTitle")
     movieSearchBar.innerHTML = title;

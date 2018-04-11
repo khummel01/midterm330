@@ -53,9 +53,9 @@ img#TMDBlogo {
 }
 
 #TMDBdisclaimer {
-	font-size: 10px;
+	font-size: 20px;
 	color: black;
 	text-align: right;
-	width: 45%;
+	width: 75%;
 	float: right;
 }
