@@ -1,6 +1,6 @@
 <!-- Authors: Katie Hummel and Kari Hoff
 		 Filename: index.html
-		 Purpose: HTML for CS330 Midterm (LitFilm)
+		 Purpose: HTML for CS330 Midterm (MOBS)
 		 Date: 3 April 2018
 -->
 <!DOCTYPE html>
@@ -9,9 +9,13 @@
 		<title>Midterm</title>
 		<meta charset="utf-8">
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet"
+					href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+					integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+					crossorigin="anonymous">
 		<!-- Google fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Cardo|Quattrocento" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Cardo|Quattrocento"
+					rel="stylesheet">
 		<link href="styles.css" rel="stylesheet"/>
 	</head>
 
@@ -35,20 +39,20 @@
 					<div class="form-row">
 						<div class="form-group col-md-5">
 							<label for="item">Book Title</label>
-				      <input type="text" class="form-control" id="bookTitleInput" placeholder="title">
+				      		<input type="text" class="form-control" id="bookTitle" placeholder="Enter Book Title">
 						</div>
 						<div class="form-group col-md-5">
 							<label for="item">Author</label>
-							<input class="form-control" id="authorInput" placeholder="first last">
+							<input class="form-control" id="author" placeholder="Enter First and Last Names">
 						</div>
 						<div class="form-group col-md-2" style="float: right;" id="findBookPosition">
-							<button type="button" class="btn btn-primary findBttPosition" onclick="findBook()" id="findBkBtt">Find Book</button>
+							<button type="button" class="btn btn-primary findBttPosition" onclick="bttClck(this.id)" id="findBkBtt">Find Book</button>
 						</div>
 					</div>
 				</div>
 				<div class="panel panel-default col-md-12" id="findBookOutput">
-						<h1 id="bookTitle"></h1>
-						<h3 id="bookAuthor"></h3>
+						<h1 id="displayBookTitle"></h1>
+						<h3 id="displayBookAuthor"></h3>
 						<h5 id="avgRating"></h5>
 						<br>
 						<div class="form-row">
@@ -74,15 +78,15 @@
 					<div class="form-row">
 						<div class="form-group col-md-5">
 							<label for="item">Movie Title</label>
-				      		<input type="text" class="form-control" id="movieTitle" placeholder="title">
+				      		<input type="text" class="form-control" id="movieTitle" placeholder="Enter Movie Title">
 						</div>
 						<div class="form-group col-md-2" id="findMoviePosition">
-							<button type="button" class="btn btn-primary findBttPosition" onclick="findMovie()" id="findMvBtt">Find Movie</button>
+							<button type="button" class="btn btn-primary findBttPosition" onclick="bttClck(this.id)" id="findMvBtt">Find Movie</button>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 		<div class="output" id="findMovieOutput">
 			<h1 id="displayMovieTitle"></h1>
 			<h3 id="displayMovieDirector"></h3>
@@ -91,14 +95,14 @@
 			<h6 id="displayMovieTagline"></h6>
 			<p id="displayMovieSummary"></p>
 		</div>
-
+		<br><br>
 		<footer class="footer">
 			<div id="footerDiv">
 				<img id="TMDBlogo" src="TMDBlogo.png">
 			</div>
 			<div id="footerDiv">
 				<p>Copywrite 2018 - Luther College</p>
-				<p>Made by Katie Hummel and Kari Hoff</p>
+				<p>Made by K<sup>2</sup> (Katie Hummel and Kari Hoff)</p>
 			</div>
 			<div id="footerDiv">
 				<!-- Required to use TMDB -->
