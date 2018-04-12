@@ -44,9 +44,10 @@ function findBook(title, author) {
       let title = data["items"][0]["volumeInfo"]["title"];
       titleDisplay.innerHTML = title;
       authorDisplay.innerHTML = author;
-      possWrongResultDisplay.innerHTML = "Not what you're looking for? Please check your spelling and be sure to input the full title and author's name."
-      bookImageDisplay.innerHTML =  `<img src=${bookImage} style=width:167px;height:270px>`;
-;
+
+      let summary = data["items"][0]["volumeInfo"]["description"];
+      let avgRating = data["items"][0]["volumeInfo"]["averageRating"];
+      let bookImage = data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"];
 
       if (summary == undefined) {
         summaryDisplay.innerHTML = "Summary unavailable";
@@ -58,26 +59,7 @@ function findBook(title, author) {
       } else {
         avgRatingDisplay.innerHTML = `Average rating: ${avgRating}/5`;
       }
-      let summary = data["items"][0]["volumeInfo"]["description"];
-      let avgRating = data["items"][0]["volumeInfo"]["averageRating"];
-      let bookImage = data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"];
 
-      let titleDisplay = document.getElementById("bookTitle");
-      let authorDisplay = document.getElementById("bookAuthor");
-      let summaryDisplay = document.getElementById("bookSummary");
-      let avgRatingDisplay = document.getElementById("avgRating");
-      let possWrongResultDisplay = document.getElementById("possWrongResult");
-      let bookImageDisplay = document.getElementById("bookImage");
-
-      titleDisplay.innerHTML = title;
-      authorDisplay.innerHTML = author;
-      possWrongResultDisplay.innerHTML = "Not what you're looking for? Please check your spelling and be sure to input the full title and author's name."
-      bookImageDisplay.innerHTML =  `<img src=${bookImage} style=width:167px;height:270px;float:left;>`;
-;
-
-      if (summary == undefined) {
-        summaryDisplay.innerHTML = "Summary unavailable";
-      }
       // Access and display Rating
       try {
         let avgRating = data["items"][0]["volumeInfo"]["averageRating"];

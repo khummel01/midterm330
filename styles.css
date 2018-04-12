@@ -8,6 +8,9 @@
 body {
 	font-family: 'Cardo', serif;
 	font-family: 'Quattrocento', serif;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 div.output {
@@ -27,6 +30,29 @@ img#TMDBlogo {
     margin-top: 30px;
 }
 
+.footer {
+	background-color: #6351ce;
+	height: 150px;
+	padding: 2.5%;
+	margin-top: auto;
+	position: relative;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: white;
+	text-align: center;
+
+}
+
+.footer div {
+	float: left;
+	width: 33%;
+}
+
+.output {
+	align-content: center;
+}
+
 #findBkBtt {
 	margin-left: 45px;
 }
@@ -36,7 +62,7 @@ img#TMDBlogo {
 }
 
 #TMDBdisclaimer {
-	font-size: 20px;
+	font-size: 15px;
 	color: black;
 	text-align: right;
 	width: 75%;
