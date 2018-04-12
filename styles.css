@@ -20,12 +20,30 @@ img#TMDBlogo {
 
 .findBttPosition {
     margin-top: 30px;
-}
-
-#findBkBtt {
-	margin-left: 45px;
+		/* margin-left: 45px; */
 }
 
 #searchHeaders {
     text-align: center;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#output {
+	padding-left: 30px;
+}
+
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+img {
+    float: left;
 }

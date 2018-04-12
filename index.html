@@ -23,12 +23,13 @@
 		    <h5 class="card-text cardColor">Your favorite movie or book search!</h5>
 		  </div>
 		</div>
-		<!-- End Navigation -->
+		<!-- END Navigation -->
 		<br><br>
+		<!-- Search by book -->
 		<div id="searchHeaders">
 			<h3>Search by Book</h3>
 		</div>
-		<br><br>
+		<br>
 		<form id="bookInputForm">
 			<div class="container">
 				<div class="panel panel-default col-md-12">
@@ -41,57 +42,66 @@
 							<label for="item">Author</label>
 							<input class="form-control" id="authorInput" placeholder="first last">
 						</div>
-						<div class="form-group col-md-2" style="float: right;" id="findBookPosition">
+						<div class="form-group col-md-2" style="float:right;" id="findBookPosition">
 							<button type="button" class="btn btn-primary findBttPosition" onclick="findBook()" id="findBkBtt">Find Book</button>
 						</div>
 					</div>
 				</div>
-				<div class="panel panel-default col-md-12" id="findBookOutput">
-						<h1 id="bookTitle"></h1>
-						<h3 id="bookAuthor"></h3>
-						<h5 id="avgRating"></h5>
-						<br>
-						<div class="form-row">
-							<div class="form-group col-md-2">
-								<p id="bookImage"></p>
-							</div>
-							<div class="form-group col-md-9">
-								<p id="bookSummary"></p>
-							</div>
-						</div>
-						<br><br>
-						<h5 id="possWrongResult"></h5>
-				</div>
+			</div>
 		</form>
-		<br><br>
+		<!-- END Search by book -->
+		<br>
+		<!-- Search by movie -->
 		<div id="searchHeaders">
 			<h3>Search by Movie</h3>
 		</div>
-		<br><br>
+		<br>
 		<form id="movieInputForm">
 			<div class="container">
 				<div class="panel panel-default col-md-12">
 					<div class="form-row">
 						<div class="form-group col-md-5">
 							<label for="item">Movie Title</label>
-				      		<input type="text" class="form-control" id="movieTitle" placeholder="title">
+							<input type="text" class="form-control" id="movieTitle" placeholder="title">
 						</div>
-						<div class="form-group col-md-2" id="findMoviePosition">
+						<div class="form-group col-md-2" style="float: right;" id="findMoviePosition">
 							<button type="button" class="btn btn-primary findBttPosition" onclick="findMovie()" id="findMvBtt">Find Movie</button>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="output" id="findMovieOutput">
-			<h1 id="displayMovieTitle"></h1>
-			<h3 id="displayMovieDirector"></h3>
-			<h5 id="displayMovieRating"></h5>
-			<img id="displayMoviePoster">
-			<h6 id="displayMovieTagline"></h6>
-			<p id="displayMovieSummary"></p>
-		</div>
+		</form>
+		<!-- END Search by movie -->
+		<br><br>
+		<!-- Movie and Book output -->
+		<div class="container">
+			<div class="panel panel-default col-md-12" id="findBookOutput">
+				<div class="row">
+				  <div class="column col-md-6" style="background-color:#aaa;">
+						<h1 id="bookTitle"></h1>
+						<h3 id="bookAuthor"></h3>
+						<h5 id="avgRating"></h5>
+						<img id="bookImage">
+						<p id="bookSummary"></p>
+				  </div>
+				  <div class="column col-md-6" style="background-color:#bbb;">
+						<h1 id="displayMovieTitle"></h1>
+						<h3 id="displayMovieDirector"></h3>
+						<h5 id="displayMovieRating"></h5>
+						<img id="displayMoviePoster">
+						<h6 id="displayMovieTagline"></h6>
+						<p id="displayMovieSummary"></p>
+				  </div>
+				</div>
+					<div class="form-row">
+						<h5 id="possWrongResult"></h5>
+					</div>
+				</div>
+			</div>
+		<!-- END Movie and Book output -->
 
+		<!-- Footer -->
+		<br><br><br>
 		<footer class="footer">
 			<div id="footerDiv">
 				<img id="TMDBlogo" src="TMDBlogo.png">
@@ -105,6 +115,7 @@
 				<p id="TMDBdisclaimer">This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
 			</div>
 		</footer>
+		<!-- END footer -->
 	</body>
 
 	<script type="text/javascript" src="controller.js"></script>

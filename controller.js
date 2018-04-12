@@ -15,7 +15,6 @@ function findBook() {
       return response.json();
     })
     .then(function(data) {
-<<<<<<< HEAD
       let title = data["items"][0]["volumeInfo"]["title"];
       let author = data["items"][0]["volumeInfo"]["authors"][0];
       let summary = data["items"][0]["volumeInfo"]["description"];
@@ -32,36 +31,10 @@ function findBook() {
       titleDisplay.innerHTML = title;
       authorDisplay.innerHTML = author;
       possWrongResultDisplay.innerHTML = "Not what you're looking for? Please check your spelling and be sure to input the full title and author's name."
-      bookImageDisplay.innerHTML =  `<img src=${bookImage} style=width:167px;height:270px>`;
-;
+      bookImageDisplay.src = bookImage;
+      bookImageDisplay.style = "width:167px;height:270px;float:left;padding-right:2%";
 
-      if (summary == undefined) {
-        summaryDisplay.innerHTML = "Summary unavailable";
-      } else {
-        summaryDisplay.innerHTML = summary;
-      }
-      if (avgRating == undefined) {
-        avgRatingDisplay.innerHTML = "Not rated";
-      } else {
-        avgRatingDisplay.innerHTML = `Average rating: ${avgRating}/5`;
-      }
-      let summary = data["items"][0]["volumeInfo"]["description"];
-      let avgRating = data["items"][0]["volumeInfo"]["averageRating"];
-      let bookImage = data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"];
-
-      let titleDisplay = document.getElementById("bookTitle");
-      let authorDisplay = document.getElementById("bookAuthor");
-      let summaryDisplay = document.getElementById("bookSummary");
-      let avgRatingDisplay = document.getElementById("avgRating");
-      let possWrongResultDisplay = document.getElementById("possWrongResult");
-      let bookImageDisplay = document.getElementById("bookImage");
-
-      titleDisplay.innerHTML = title;
-      authorDisplay.innerHTML = author;
-      possWrongResultDisplay.innerHTML = "Not what you're looking for? Please check your spelling and be sure to input the full title and author's name."
-      bookImageDisplay.innerHTML =  `<img src=${bookImage} style=width:167px;height:270px;float:left;>`;
-;
-
+      // TODO: AUTHOR
       if (summary == undefined) {
         summaryDisplay.innerHTML = "Summary unavailable";
       } else {
