@@ -3,6 +3,10 @@
 //Purpose: javascript for CS330 Midterm (MOBS)
 //Date: 3 April 2018
 
+function windowAdjust() {
+  document.getElementById('findBookOutput').scrollIntoView();
+}
+
 function bttClck(bttSpec) {
   if (bttSpec == "findBkBtt") {
     let titleElement = document.querySelector("#bookTitle");
