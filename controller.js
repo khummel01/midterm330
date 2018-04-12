@@ -1,11 +1,35 @@
 //Authors: Katie Hummel and Kari Hoff
 //Filename: controller.js
-//Purpose: javascript for CS330 Midterm (LitFilm)
+//Purpose: javascript for CS330 Midterm (MOBS)
 //Date: 3 April 2018
 
-function findBook() {
-  let title = document.querySelector("#bookTitleInput").value;
-  let author = document.querySelector("#authorInput").value;
+function windowAdjust() {
+  document.getElementById('findBookOutput').scrollIntoView();
+}
+
+function bttClck(bttSpec) {
+  if (bttSpec == "findBkBtt") {
+    let titleElement = document.querySelector("#bookTitle");
+    let title = titleElement.value;
+    let authorElement = document.querySelector("#author");
+    let author = authorElement.value;
+    findBook(title, author);
+    findMovie(title);
+    titleElement.value = "";
+    authorElement.value = "";
+  } else {
+    let titleElement = document.querySelector("#movieTitle")
+    let title = titleElement.value;
+    findBook(title);
+    findMovie(title);
+    titleElement.value = "";
+  }
+
+  let possWrongResultDisplay = document.getElementById("possWrongResult");
+  possWrongResultDisplay.innerHTML = "Not what you're looking for? Please check your spelling and be sure to input the full title and author's name."
+}
+
+function findBook(title, author) {
   let config = {}; // object, here's the method, body, headers
   config.method = 'GET';
   config.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'};
@@ -25,9 +49,9 @@ function findBook() {
       let authorDisplay = document.getElementById("bookAuthor");
       let summaryDisplay = document.getElementById("bookSummary");
       let avgRatingDisplay = document.getElementById("avgRating");
-      let possWrongResultDisplay = document.getElementById("possWrongResult");
       let bookImageDisplay = document.getElementById("bookImage");
 
+      let title = data["items"][0]["volumeInfo"]["title"];
       titleDisplay.innerHTML = title;
       authorDisplay.innerHTML = author;
       possWrongResultDisplay.innerHTML = "Not what you're looking for? Please check your spelling and be sure to input the full title and author's name."
@@ -45,11 +69,28 @@ function findBook() {
       } else {
         avgRatingDisplay.innerHTML = `Average rating: ${avgRating}/5`;
       }
+
+      // Access and display Rating
+      try {
+        let avgRating = data["items"][0]["volumeInfo"]["averageRating"];
+        avgRatingDisplay.innerHTML = `Average rating: ${avgRating}/5`;
+      } catch (e) {
+        avgRatingDisplay.innerHTML = "Not rated";
+      }
+      try {
+        let bookImage = data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"];
+        bookImageDisplay.innerHTML =  `<img src=${bookImage} style=width:167px;height:270px;float:left;>`;
+      } catch (e) {
+        bookImageDisplay.innerHTML = "Picture unavailable";
+      }
+
+    let movieSearchBar = document.querySelector("#movieTitle")
+    movieSearchBar.innerHTML = title;
+    findMovie()
     });
 }
 
-function findMovie() {
-  let title = document.querySelector("#movieTitle").value;
+function findMovie(title) {
   let api_key = "270ef537760087ddcea25e06616b754d"
 
   // Fetches movie id

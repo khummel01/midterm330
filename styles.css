@@ -1,8 +1,16 @@
+/* Authors: Katie Hummel and Kari Hoff
+  Filename: styles.class
+	Purpose: Custom styles for CS 330 Midterm (MOBS)
+	Date: 3 April 2018 */
+
 @charset "utf-8";
 
 body {
 	font-family: 'Cardo', serif;
 	font-family: 'Quattrocento', serif;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 div.output {
@@ -20,13 +28,44 @@ img#TMDBlogo {
 
 .findBttPosition {
     margin-top: 30px;
+<<<<<<< HEAD
 		/* margin-left: 45px; */
+=======
+}
+
+.footer {
+	background-color: #6351ce;
+	height: 150px;
+	padding: 2.5%;
+	margin-top: auto;
+	position: relative;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: white;
+	text-align: center;
+
+}
+
+.footer div {
+	float: left;
+	width: 33%;
+}
+
+.output {
+	align-content: center;
+}
+
+#findBkBtt {
+	margin-left: 45px;
+>>>>>>> 8e899609407cfdff0619392c3cb3912c81bca23f
 }
 
 #searchHeaders {
     text-align: center;
 }
 
+<<<<<<< HEAD
 .row:after {
     content: "";
     display: table;
@@ -46,4 +85,12 @@ img#TMDBlogo {
 
 img {
     float: left;
+=======
+#TMDBdisclaimer {
+	font-size: 15px;
+	color: black;
+	text-align: right;
+	width: 75%;
+	float: right;
+>>>>>>> 8e899609407cfdff0619392c3cb3912c81bca23f
 }
