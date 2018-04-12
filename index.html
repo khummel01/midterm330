@@ -47,7 +47,8 @@
 							<input class="form-control" id="author" placeholder="Enter First and Last Names">
 						</div>
 						<div class="form-group col-md-2" style="float:right;" id="findBookPosition">
-							<button href="#findBookOutput" type="button" class="btn btn-primary findBttPosition" onclick="bttClck(this.id)" id="findBkBtt">Find Book</button>
+							<button href="#findBookOutput" type="button" class="btn findBttPosition"
+											style="color: white; background-color:#b30047;" onclick="bttClck(this.id), windowAdjust()" id="findBkBtt">Find Book</button>
 						</div>
 					</div>
 				</div>
@@ -66,10 +67,11 @@
 					<div class="form-row">
 						<div class="form-group col-md-5">
 							<label for="item">Movie Title</label>
-							<input type="text" class="form-control" id="movieTitle" placeholder="title">
+							<input type="text" class="form-control" id="movieTitle" placeholder="Enter Movie title">
 						</div>
 						<div class="form-group col-md-2" style="float: right;" id="findMoviePosition">
-							<button type="button" class="btn btn-primary findBttPosition" onclick="findMovie()" id="findMvBtt">Find Movie</button>
+							<button type="button" class="btn findBttPosition"
+											style="color: white; background-color: #b30047;" onclick="bttClck(this.id), windowAdjust()" id="findMvBtt">Find Movie</button>
 						</div>
 					</div>
 				</div>
@@ -79,16 +81,16 @@
 		<br><br>
 		<!-- Movie and Book output -->
 		<div class="container">
-			<div class="panel panel-default col-md-12" id="findBookOutput">
+			<div class="panel panel-default col-md-12" id="displayOutput">
 				<div class="row">
-				  <div class="column col-md-6" style="background-color:#aaa;">
-						<h1 id="bookTitle"></h1>
-						<h3 id="bookAuthor"></h3>
-						<h5 id="avgRating"></h5>
-						<img id="bookImage">
-						<p id="bookSummary"></p>
+				  <div class="column col-md-6" style="background-color:#dcd7f4;">
+						<h1 id="displayBookTitle"></h1>
+						<h3 id="displayBookAuthor"></h3>
+						<h5 id="displayAvgRating"></h5>
+						<img id="displayBookImage">
+						<p id="displayBookSummary"></p>
 				  </div>
-				  <div class="column col-md-6" style="background-color:#bbb;">
+				  <div class="column col-md-6" style="background-color:#cac3ee;">
 						<h1 id="displayMovieTitle"></h1>
 						<h3 id="displayMovieDirector"></h3>
 						<h5 id="displayMovieRating"></h5>

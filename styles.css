@@ -13,6 +13,10 @@ body {
 	min-height: 100vh;
 }
 
+button {
+	color: #b30047;
+}
+
 div.output {
 	padding-left: 12%;
 }
@@ -28,14 +32,12 @@ img#TMDBlogo {
 
 .findBttPosition {
     margin-top: 30px;
-<<<<<<< HEAD
 		/* margin-left: 45px; */
-=======
 }
 
 .footer {
 	background-color: #6351ce;
-	height: 150px;
+	height: 125px;
 	padding: 2.5%;
 	margin-top: auto;
 	position: relative;
@@ -52,20 +54,14 @@ img#TMDBlogo {
 	width: 33%;
 }
 
-.output {
-	align-content: center;
-}
-
 #findBkBtt {
 	margin-left: 45px;
->>>>>>> 8e899609407cfdff0619392c3cb3912c81bca23f
 }
 
 #searchHeaders {
     text-align: center;
 }
 
-<<<<<<< HEAD
 .row:after {
     content: "";
     display: table;
@@ -85,12 +81,17 @@ img#TMDBlogo {
 
 img {
     float: left;
-=======
+}
+
 #TMDBdisclaimer {
 	font-size: 15px;
 	color: black;
 	text-align: right;
 	width: 75%;
 	float: right;
->>>>>>> 8e899609407cfdff0619392c3cb3912c81bca23f
+
+}
+
+#displayOutput {
+	display: none;
 }

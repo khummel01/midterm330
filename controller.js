@@ -4,10 +4,12 @@
 //Date: 3 April 2018
 
 function windowAdjust() {
-  document.getElementById('findBookOutput').scrollIntoView();
+  document.getElementById('displayOutput').scrollIntoView();
 }
 
 function bttClck(bttSpec) {
+  let display = document.querySelector("#displayOutput")
+  display.style = "display: block;"
   if (bttSpec == "findBkBtt") {
     let titleElement = document.querySelector("#bookTitle");
     let title = titleElement.value;
@@ -45,16 +47,14 @@ function findBook(title, author) {
       let avgRating = data["items"][0]["volumeInfo"]["averageRating"];
       let bookImage = data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"];
 
-      let titleDisplay = document.getElementById("bookTitle");
-      let authorDisplay = document.getElementById("bookAuthor");
-      let summaryDisplay = document.getElementById("bookSummary");
-      let avgRatingDisplay = document.getElementById("avgRating");
-      let bookImageDisplay = document.getElementById("bookImage");
+      let titleDisplay = document.getElementById("displayBookTitle");
+      let authorDisplay = document.getElementById("displayBookAuthor");
+      let summaryDisplay = document.getElementById("displayBookSummary");
+      let avgRatingDisplay = document.getElementById("displayAvgRating");
+      let bookImageDisplay = document.getElementById("displayBookImage");
 
-      let title = data["items"][0]["volumeInfo"]["title"];
       titleDisplay.innerHTML = title;
       authorDisplay.innerHTML = author;
-      possWrongResultDisplay.innerHTML = "Not what you're looking for? Please check your spelling and be sure to input the full title and author's name."
       bookImageDisplay.src = bookImage;
       bookImageDisplay.style = "width:167px;height:270px;float:left;padding-right:2%";
 
@@ -77,6 +77,7 @@ function findBook(title, author) {
       } catch (e) {
         avgRatingDisplay.innerHTML = "Not rated";
       }
+      //
       try {
         let bookImage = data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"];
         bookImageDisplay.innerHTML =  `<img src=${bookImage} style=width:167px;height:270px;float:left;>`;
@@ -121,7 +122,7 @@ function findMovieInfo(movieId) {
     })
     .then(function(data) {
       let title = data["original_title"];
-      let titleDisplay = document.querySelector("#displayMovieTitle").innerHTML = title;
+      document.querySelector("#displayMovieTitle").innerHTML = title;
       let tagline = data["tagline"];
       document.querySelector("#displayMovieTagline").innerHTML = tagline;
       let overview = data["overview"];
