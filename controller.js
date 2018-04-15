@@ -3,6 +3,8 @@
 //Purpose: javascript for CS330 Midterm (MOBS)
 //Date: 3 April 2018
 
+let globalMovieId;
+
 function windowAdjust() {
   document.getElementById('displayOutput').scrollIntoView();
 }
@@ -14,7 +16,7 @@ function bttClck(bttSpec) {
     let titleElement = document.querySelector("#bookTitle");
     let title = titleElement.value;
     let authorElement = document.querySelector("#author");
-    let author = authorElement.value;
+    let author = `Author: ${authorElement.value}`;
     findBook(title, author);
     findMovie(title);
     titleElement.value = "";
@@ -22,8 +24,9 @@ function bttClck(bttSpec) {
   } else {
     let titleElement = document.querySelector("#movieTitle")
     let title = titleElement.value;
-    findBook(title);
+    findBook(title, "");
     findMovie(title);
+    console.log(globalMovieId)
     titleElement.value = "";
   }
 
@@ -45,7 +48,8 @@ function findBook(title, author) {
       let author = data["items"][0]["volumeInfo"]["authors"][0];
       let summary = data["items"][0]["volumeInfo"]["description"];
       let avgRating = data["items"][0]["volumeInfo"]["averageRating"];
-      let bookImage = data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"];
+      let bookImage = data["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
+      let publishingYear = data["items"][0]["volumeInfo"]["publishedDate"].slice(0, 4);
 
       let titleDisplay = document.getElementById("displayBookTitle");
       let authorDisplay = document.getElementById("displayBookAuthor");
@@ -53,7 +57,7 @@ function findBook(title, author) {
       let avgRatingDisplay = document.getElementById("displayAvgRating");
       let bookImageDisplay = document.getElementById("displayBookImage");
 
-      titleDisplay.innerHTML = title;
+      titleDisplay.innerHTML = `${title} (${publishingYear})`;
       authorDisplay.innerHTML = author;
       bookImageDisplay.src = bookImage;
       bookImageDisplay.style = "width:167px;height:270px;float:left;padding-right:2%";
@@ -98,14 +102,21 @@ function findMovie(title) {
   let config1 = {}; // object, here's the method, body, headers
   config1.method = 'GET';
   config1.headers = {'Content-Type': 'application/json', 'Accept': 'application/json'};
-  let movieId = fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${title}`, config1) //return a promise that contains details about the response
+  fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${title}`, config1) //return a promise that contains details about the response
     .then(function(response) {
       return response.json();
     })
     .then(function(data) {
-      let firstResult = data["results"][0];
-      findMovieInfo(firstResult["id"]);
+      let firstResultId = data["results"][0]["id"];
+      assignMovieId(firstResultId);
+      findMovieInfo(firstResultId)
+      return firstResultId;
     });
+}
+
+function assignMovieId(movieId) {
+  globalMovieId = movieId;
+  console.log(globalMovieId)
 }
 
 function findMovieInfo(movieId) {
@@ -122,7 +133,8 @@ function findMovieInfo(movieId) {
     })
     .then(function(data) {
       let title = data["original_title"];
-      document.querySelector("#displayMovieTitle").innerHTML = title;
+      let releaseYear = data["release_date"].slice(0, 4);
+      document.querySelector("#displayMovieTitle").innerHTML = `${title} (${releaseYear})`;
       let tagline = data["tagline"];
       document.querySelector("#displayMovieTagline").innerHTML = tagline;
       let overview = data["overview"];

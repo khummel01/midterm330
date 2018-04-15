@@ -21,9 +21,8 @@ div.output {
 	padding-left: 12%;
 }
 
-img#TMDBlogo {
-	width: 150px;
-	float: left;
+.card {
+	background-color: black;
 }
 
 .cardColor {
@@ -36,8 +35,8 @@ img#TMDBlogo {
 }
 
 .footer {
-	background-color: #6351ce;
-	height: 125px;
+	background-color: black;
+	height: 105px;
 	padding: 2.5%;
 	margin-top: auto;
 	position: relative;
@@ -49,9 +48,21 @@ img#TMDBlogo {
 
 }
 
-.footer div {
-	float: left;
-	width: 33%;
+.card-group{
+	padding-bottom: 20px;
+}
+
+img#TMDBlogo {
+	padding: 20px;
+	max-width: 150px;
+	max-height: 150px;
+}
+
+img#GoogleBooksLogo {
+	padding: 20px;
+	max-width: 250px;
+	position: absolute;
+	right: 20px;
 }
 
 #findBkBtt {
@@ -79,16 +90,8 @@ img#TMDBlogo {
     padding: 10px;
 }
 
-img {
-    float: left;
-}
-
 #TMDBdisclaimer {
-	font-size: 15px;
-	color: black;
-	text-align: right;
-	width: 75%;
-	float: right;
+	font-size: 10px;
 
 }
 
