@@ -17,35 +17,8 @@ button {
 	color: #b30047;
 }
 
-div.output {
-	padding-left: 12%;
-}
-
 .card {
 	background-color: black;
-}
-
-.cardColor {
-	color: white;
-}
-
-.findBttPosition {
-    margin-top: 30px;
-		/* margin-left: 45px; */
-}
-
-.footer {
-	background-color: black;
-	height: 105px;
-	padding: 2.5%;
-	margin-top: auto;
-	position: relative;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	color: white;
-	text-align: center;
-
 }
 
 .card-group{
@@ -65,12 +38,49 @@ img#GoogleBooksLogo {
 	right: 20px;
 }
 
-#findBkBtt {
-	margin-left: 45px;
+/* Book and movie search buttons */
+.findBttPosition {
+    margin-top: 30px;
 }
 
-#searchHeaders {
+/* Book and movie search headers */
+.searchHeaders {
     text-align: center;
+}
+
+/* Column styles for div output */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+/* Book and movie images */
+img {
+    float: left;
+}
+
+/* Hide, unhide the display output div */
+.hidden {
+    display:none;
+}
+
+.unhidden {
+    display:block;
+}
+
+/* Footer */
+.footer {
+	background-color: black;
+	height: 105px;
+	padding: 2.5%;
+	margin-top: auto;
+	position: relative;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: white;
+	text-align: center;
 }
 
 .row:after {
@@ -79,22 +89,20 @@ img#GoogleBooksLogo {
     clear: both;
 }
 
-#output {
-	padding-left: 30px;
-}
-
-
 .column {
     float: left;
     width: 50%;
     padding: 10px;
 }
 
-#TMDBdisclaimer {
+/* #TMDBdisclaimer {
 	font-size: 10px;
+} */
 
-}
-
-#displayOutput {
-	display: none;
+#TMDBdisclaimer {
+	font-size: 15px;
+	color: black;
+	text-align: right;
+	width: 75%;
+	float: right;
 }
