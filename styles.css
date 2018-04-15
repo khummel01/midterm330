@@ -13,26 +13,43 @@ body {
 	min-height: 100vh;
 }
 
-div.output {
-	padding-left: 12%;
-}
-
-img#TMDBlogo {
-	width: 150px;
-	float: left;
-}
-
+/* Navigation */
 .cardColor {
 	color: white;
 }
 
+/* Book and movie search buttons */
 .findBttPosition {
     margin-top: 30px;
-<<<<<<< HEAD
-		/* margin-left: 45px; */
-=======
 }
 
+/* Book and movie search headers */
+.searchHeaders {
+    text-align: center;
+}
+
+/* Column styles for div output */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+/* Book and movie images */
+img {
+    float: left;
+}
+
+/* Hide, unhide the display output div */
+.hidden {
+    display:none;
+}
+
+.unhidden {
+    display:block;
+}
+
+/* Footer */
 .footer {
 	background-color: #6351ce;
 	height: 150px;
@@ -52,45 +69,16 @@ img#TMDBlogo {
 	width: 33%;
 }
 
-.output {
-	align-content: center;
+/* TMDB Logo in footer */
+img#TMDBlogo {
+	width: 150px;
+	float: left;
 }
 
-#findBkBtt {
-	margin-left: 45px;
->>>>>>> 8e899609407cfdff0619392c3cb3912c81bca23f
-}
-
-#searchHeaders {
-    text-align: center;
-}
-
-<<<<<<< HEAD
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-#output {
-	padding-left: 30px;
-}
-
-
-.column {
-    float: left;
-    width: 50%;
-    padding: 10px;
-}
-
-img {
-    float: left;
-=======
 #TMDBdisclaimer {
 	font-size: 15px;
 	color: black;
 	text-align: right;
 	width: 75%;
 	float: right;
->>>>>>> 8e899609407cfdff0619392c3cb3912c81bca23f
 }

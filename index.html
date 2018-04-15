@@ -9,6 +9,7 @@
 		<title>Midterm</title>
 		<meta charset="utf-8">
 
+		<!-- Bootstrap -->
 		<link rel="stylesheet"
 					href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 					integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -30,7 +31,7 @@
 		<!-- END Navigation -->
 		<br><br>
 		<!-- Search by book -->
-		<div id="searchHeaders">
+		<div class="searchHeaders">
 			<h3>Search by Book</h3>
 		</div>
 		<br>
@@ -44,10 +45,10 @@
 						</div>
 						<div class="form-group col-md-5">
 							<label for="item">Author</label>
-							<input class="form-control" id="author" placeholder="Enter First and Last Names">
+							<input class="form-control" id="author" placeholder="Enter First and Last Name">
 						</div>
 						<div class="form-group col-md-2" style="float:right;" id="findBookPosition">
-							<button href="#findBookOutput" type="button" class="btn btn-primary findBttPosition" onclick="bttClck(this.id)" id="findBkBtt">Find Book</button>
+							<button type="button" class="btn btn-primary findBttPosition" onclick="bttClck(this.id)" id="findBkBtt">Find Book</button>
 						</div>
 					</div>
 				</div>
@@ -56,7 +57,7 @@
 		<!-- END Search by book -->
 		<br>
 		<!-- Search by movie -->
-		<div id="searchHeaders">
+		<div class="searchHeaders">
 			<h3>Search by Movie</h3>
 		</div>
 		<br>
@@ -66,40 +67,42 @@
 					<div class="form-row">
 						<div class="form-group col-md-5">
 							<label for="item">Movie Title</label>
-							<input type="text" class="form-control" id="movieTitle" placeholder="title">
+							<input type="text" class="form-control" id="movieTitle" placeholder="Enter Movie Title">
 						</div>
 						<div class="form-group col-md-2" style="float: right;" id="findMoviePosition">
-							<button type="button" class="btn btn-primary findBttPosition" onclick="findMovie()" id="findMvBtt">Find Movie</button>
+							<button type="button" class="btn btn-primary findBttPosition" onclick="bttClck(this.id)" id="findMvBtt">Find Movie</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</form>
 		<!-- END Search by movie -->
-		<br><br>
+		<br><br><br>
+
 		<!-- Movie and Book output -->
 		<div class="container">
-			<div class="panel panel-default col-md-12" id="findBookOutput">
+			<div class="panel panel-default col-md-12 hidden" id="bookMovieOutput">
 				<div class="row">
 				  <div class="column col-md-6" style="background-color:#aaa;">
-						<h1 id="bookTitle"></h1>
-						<h3 id="bookAuthor"></h3>
-						<h5 id="avgRating"></h5>
-						<img id="bookImage">
-						<p id="bookSummary"></p>
+						<h1 id="displayBookTitle"></h1>
+						<h3 id="displayBookAuthor"></h3>
+						<h5 id="displayAvgRating"></h5>
+						<br>
+						<img id="displayBookImage">
+						<p id="displayBookSummary"></p>
 				  </div>
 				  <div class="column col-md-6" style="background-color:#bbb;">
 						<h1 id="displayMovieTitle"></h1>
 						<h3 id="displayMovieDirector"></h3>
 						<h5 id="displayMovieRating"></h5>
+						<br>
 						<img id="displayMoviePoster">
 						<h6 id="displayMovieTagline"></h6>
-						<p id="displayMovieSummary"></p>
+						<p id="displayMovieOverview"></p>
 				  </div>
 				</div>
-					<div class="form-row">
-						<h5 id="possWrongResult"></h5>
-					</div>
+					<br>
+					<h6 align="center" id="displayWrongResult"></h6>
 				</div>
 			</div>
 		<!-- END Movie and Book output -->
