@@ -1,7 +1,7 @@
 /* Authors: Katie Hummel and Kari Hoff
-  Filename: styles.class
-	Purpose: Custom styles for CS 330 Midterm (MOBS)
-	Date: 3 April 2018 */
+   Filename: styles.class
+   Purpose: Custom styles for CS 330 Midterm (MOBS)
+   Date: 3 April 2018 */
 
 @charset "utf-8";
 
@@ -15,6 +15,10 @@ body {
 
 button {
 	color: #b30047;
+}
+
+.cardColor {
+	color: white;
 }
 
 .card {
@@ -95,14 +99,6 @@ img {
     padding: 10px;
 }
 
-/* #TMDBdisclaimer {
-	font-size: 10px;
-} */
-
 #TMDBdisclaimer {
-	font-size: 15px;
-	color: black;
-	text-align: right;
-	width: 75%;
-	float: right;
+	font-size: 10px;
 }

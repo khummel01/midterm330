@@ -1,15 +1,10 @@
-//Authors: Katie Hummel and Kari Hoff
-//Filename: controller.js
-//Purpose: javascript for CS330 Midterm (MOBS)
-//Date: 3 April 2018
-//
-// function windowAdjust() {
-//   document.getElementById("bookMovieOutput").scrollIntoView();
-// }
+// Authors: Katie Hummel and Kari Hoff
+// Filename: controller.js
+// Purpose: javascript for CS330 Midterm (MOBS)
+// Date: 3 April 2018
 
 function bttClck(bttSpec) {
   let display = document.querySelector("#displayOutput")
-  display.style = "display: block;"
   if (bttSpec == "findBkBtt") {
     let titleElement = document.querySelector("#bookTitle");
     let title = titleElement.value;
@@ -230,12 +225,4 @@ function findMovieInfo(movieId) {
         posterDisplay.src = "//:0";
       }
     });
-  //Fetch Video -- add later
-  // fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${api_key}`, config2) //return a promise that contains details about the response
-  //   .then(function(response) {
-  //     return response.json();
-  //   })
-  //   .then(function(data) {
-  //     console.log(data)
-  //   });
 }
