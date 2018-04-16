@@ -1,13 +1,7 @@
-//Authors: Katie Hummel and Kari Hoff
-//Filename: controller.js
-//Purpose: javascript for CS330 Midterm (MOBS)
-//Date: 3 April 2018
-
-let globalMovieId;
-
-function windowAdjust() {
-  document.getElementById('displayOutput').scrollIntoView();
-}
+// Authors: Katie Hummel and Kari Hoff
+// Filename: controller.js
+// Purpose: javascript for CS330 Midterm (MOBS)
+// Date: 3 April 2018
 
 function bttClck(bttSpec) {
   let display = document.querySelector("#displayOutput")
@@ -108,15 +102,8 @@ function findMovie(title) {
     })
     .then(function(data) {
       let firstResultId = data["results"][0]["id"];
-      assignMovieId(firstResultId);
       findMovieInfo(firstResultId)
-      return firstResultId;
     });
-}
-
-function assignMovieId(movieId) {
-  globalMovieId = movieId;
-  console.log(globalMovieId)
 }
 
 function findMovieInfo(movieId) {
@@ -162,12 +149,4 @@ function findMovieInfo(movieId) {
       posterDisplay.src = `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${poster_path}`;
       posterDisplay.style = "width:167px;height:270px;float:left;padding-right:2%";
     });
-  //Fetch Video -- add later
-  // fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${api_key}`, config2) //return a promise that contains details about the response
-  //   .then(function(response) {
-  //     return response.json();
-  //   })
-  //   .then(function(data) {
-  //     console.log(data)
-  //   });
-}
+  }
