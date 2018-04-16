@@ -59,6 +59,16 @@ function findBookInfo(title, author) {
         document.getElementById("displayBookTitle").innerHTML = "Book title is unavailable";
       }
       try {
+         let publishingYear = data["items"][0]["volumeInfo"]["publishedDate"].slice(0, 4);
+         if (publishingYear != undefined) {
+          let titleDisplay = document.getElementById("displayBookTitle");
+          titleDisplay.innerHTML += ` (${publishingYear})`;
+         }
+      } catch (e) {
+          let titleDisplay = document.getElementById("displayBookTitle");
+          titleDisplay.innerHTML += "(No Year)";
+      }
+      try {
         let author = data["items"][0]["volumeInfo"]["authors"][0];
         if (author != undefined) {
           document.getElementById("displayBookAuthor").innerHTML = author;
@@ -153,6 +163,16 @@ function findMovieInfo(movieId) {
         }
       } catch (e) {
         document.getElementById("displayMovieTitle").innerHTML = "Title unavailable";
+      }
+      try {
+        let releaseYear = data["release_date"].slice(0, 4);
+        if (releaseYear != undefined) {
+          let releaseYearDisplay = document.getElementById("displayMovieTitle")
+          releaseYearDisplay.innerHTML += ` (${releaseYear})`;
+        }
+      } catch (e) {
+        let releaseYearDisplay = document.getElementById("displayMovieTitle")
+        releaseYearDisplay.innerHTML += "(No Year)";
       }
       try {
         let tagLine = data["tagline"];
