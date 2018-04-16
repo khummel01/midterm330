@@ -1,17 +1,104 @@
+/* Authors: Katie Hummel and Kari Hoff
+   Filename: styles.class
+   Purpose: Custom styles for CS 330 Midterm (MOBS)
+   Date: 3 April 2018 */
+
 @charset "utf-8";
 
 body {
-	font-family:'Montserrat', sans-serif;
+	font-family: 'Cardo', serif;
+	font-family: 'Quattrocento', serif;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
-div.output {
-	padding: 5%;
+button {
+	color: #b30047;
 }
 
+.cardColor {
+	color: white;
+}
+
+.card {
+	background-color: black;
+}
+
+.card-group{
+	padding-bottom: 20px;
+}
+
+img#TMDBlogo {
+	padding: 20px;
+	max-width: 150px;
+	max-height: 150px;
+}
+
+img#GoogleBooksLogo {
+	padding: 20px;
+	max-width: 250px;
+	position: absolute;
+	right: 20px;
+}
+
+/* Book and movie search buttons */
 .findBttPosition {
     margin-top: 30px;
 }
 
-#searchHeaders {
+/* Book and movie search headers */
+.searchHeaders {
     text-align: center;
+}
+
+/* Column styles for div output */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+/* Book and movie images */
+img {
+    float: left;
+}
+
+/* Hide, unhide the display output div */
+.hidden {
+    display:none;
+}
+
+.unhidden {
+    display:block;
+}
+
+/* Footer */
+.footer {
+	background-color: black;
+	height: 105px;
+	padding: 2.5%;
+	margin-top: auto;
+	position: relative;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: white;
+	text-align: center;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+#TMDBdisclaimer {
+	font-size: 10px;
 }

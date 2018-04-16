@@ -1,7 +1,7 @@
 <!-- Authors: Katie Hummel and Kari Hoff
-		 Filename: index.html
-		 Purpose: HTML for CS330 Midterm (LitFilm)
-		 Date: 3 April 2018
+	 Filename: index.html
+	 Purpose: HTML for CS330 Midterm (MOBS)
+	 Date: 3 April 2018
 -->
 <!DOCTYPE html>
 <html>
@@ -9,70 +9,121 @@
 		<title>Midterm</title>
 		<meta charset="utf-8">
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!-- Bootstrap -->
+		<link rel="stylesheet"
+					href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+					integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+					crossorigin="anonymous">
+		<!-- Google fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Cardo|Quattrocento"
+					rel="stylesheet">
 		<link href="styles.css" rel="stylesheet"/>
 	</head>
 
-
 	<body>
-		<br><br><br>
-		<div id="searchHeaders">
+		<!-- Navigation -->
+		<div class="card-group" style="background-color: black;">
+			<div class="card">
+				<img id="TMDBlogo" src="TMDBlogo.png">
+			</div>
+			<div class="card text-center">
+			  <div class="card-body">
+			    <h1 class="card-title cardColor">MOBS</h1>
+			    <h5 class="card-text cardColor">Your favorite movie or book search!</h5>
+			  </div>
+			</div>
+			<div class="card">
+				<img id="GoogleBooksLogo" src="GoogleBooksLogo.png">
+			</div>
+		</div>
+
+		<!-- END Navigation -->
+		<br><br>
+		<!-- Search by book -->
+		<div class="searchHeaders">
 			<h3>Search by Book</h3>
 		</div>
-		<br><br>
+		<br>
 		<form id="bookInputForm">
 			<div class="container">
 				<div class="panel panel-default col-md-12">
 					<div class="form-row">
 						<div class="form-group col-md-5">
 							<label for="item">Book Title</label>
-				      		<input type="text" class="form-control" id="bookTitle" placeholder="title">
+				      		<input type="text" class="form-control" id="bookTitle" placeholder="Enter Book Title">
 						</div>
 						<div class="form-group col-md-5">
 							<label for="item">Author</label>
-							<input class="form-control" id="author" placeholder="firstname lastname">
+							<input class="form-control" id="author" placeholder="Enter First and Last Name">
 						</div>
-						<div class="form-group col-md-2" style="float: right;" id="findBookPosition">
-							<button type="button" class="btn btn-primary findBttPosition" onclick="findBook()" id="findBkBtt">Find Book</button>
+						<div class="form-group col-md-2" style="float:right;" id="findBookPosition">
+							<button type="button" class="btn findBttPosition" style="color: white; background-color:#b30047;" onclick="bttClck(this.id)" id="findBkBtt">Find Book</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</form>
-		<div class="output" id="findBookOutput">
-				<h1 id="bookTitle"></h1>
-				<p id="bookSummary"></p>
-		</div>
-		<br><br>
-		<div id="searchHeaders">
+		<!-- END Search by book -->
+		<br>
+		<!-- Search by movie -->
+		<div class="searchHeaders">
 			<h3>Search by Movie</h3>
 		</div>
-		<br><br>
+		<br>
 		<form id="movieInputForm">
 			<div class="container">
 				<div class="panel panel-default col-md-12">
 					<div class="form-row">
 						<div class="form-group col-md-5">
 							<label for="item">Movie Title</label>
-				      		<input type="text" class="form-control" id="movieTitle" placeholder="title">
+							<input type="text" class="form-control" id="movieTitle" placeholder="Enter Movie Title">
 						</div>
-						<div class="form-group col-md-2" id="findMoviePosition">
-							<button type="button" class="btn btn-primary findBttPosition" onclick="findMovie()" id="findMvBtt">Find Movie</button>
+						<div class="form-group col-md-2" style="float: right;" id="findMoviePosition">
+							<button type="button" class="btn findBttPosition" style="color: white; background-color: #b30047;" onclick="bttClck(this.id)" id="findMvBtt">Find Movie</button>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="output" id="findMovieOutput">
-			<h1 id="movieTitle"></h1>
-			<p id="moveiSummary"></p>
-		</div>
+		</form>
+		<!-- END Search by movie -->
+		<br><br><br>
 
-		<!-- Place in a footer -->
-		<!-- Required to use TMDB -->
-		<img src="TMDBlogo.png">
-		<p>"This product uses the TMDb API but is not endorsed or certified by TMDb."</p>
+		<!-- Movie and Book output -->
+		<div class="container">
+			<div class="panel panel-default col-md-12 hidden" id="bookMovieOutput">
+				<div class="row">
+				  <div class="column col-md-6" style="background-color:#aaa;">
+						<h1 id="displayBookTitle"></h1>
+						<h3 id="displayBookAuthor"></h3>
+						<h5 id="displayAvgRating"></h5>
+						<br>
+						<img id="displayBookImage">
+						<p id="displayBookSummary"></p>
+				  </div>
+				  <div class="column col-md-6" style="background-color:#bbb;">
+						<h1 id="displayMovieTitle"></h1>
+						<h3 id="displayMovieDirector"></h3>
+						<h5 id="displayMovieRating"></h5>
+						<br>
+						<img id="displayMoviePoster">
+						<h6 id="displayMovieTagline"></h6>
+						<p id="displayMovieOverview"></p>
+				  </div>
+				</div>
+					<br>
+					<h6 align="center" id="displayWrongResult"></h6>
+				</div>
+			</div>
+		<!-- END Movie and Book output -->
 
+		<!-- Footer -->
+		<br><br><br>
+		<footer class="footer">
+				<p>&copy;2018 - K<sup>2</sup> (Katie Hummel and Kari Hoff)</p>
+				<!-- Required to use TMDB -->
+				<p id="TMDBdisclaimer">This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+		</footer>
+		<!-- END footer -->
 	</body>
 
 	<script type="text/javascript" src="controller.js"></script>
